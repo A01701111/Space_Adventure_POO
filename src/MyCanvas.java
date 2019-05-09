@@ -14,7 +14,7 @@ public class MyCanvas extends Canvas implements ActionListener, KeyListener {
     private BufferedImage imagen;
     private int counter = 0, lineNum = 3, speed;
     private int y;
-
+//ada;jd;asjldadsjl;
     public MyCanvas() {
         super();
         this.setBackground(Color.BLACK);
