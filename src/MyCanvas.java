@@ -98,27 +98,47 @@ public class MyCanvas extends Canvas implements ActionListener, KeyListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        enemies.moveEnemies();
+        boolean colision = false;
+        nave.getMisil().move();
 
-        enemies.moveEnemies();
+
+        if(enemies != null) {
+
+            if(colision){
+                enemies=null;
+            }
+        }
         repaint();
-        /*
-        if(e.getSource() == updateT) {
-            this.repaint();
-        }
-        if(e.getSource() == timer) {
-            enemies.addEnemy(1800);
-        }
-        enemies.moveEnemies();
-        repaint();*/
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
-
     @Override
-    public void keyPressed(KeyEvent key) {
+    public void keyPressed(KeyEvent tecla) {
+        int oprimida;
+        oprimida=tecla.getKeyCode();
+        System.out.println(oprimida);
+
+        if(oprimida!=32) {
+
+            nave.move(oprimida, 1800);
+
+        }
+
+        //Disparar bala con tecla espacio
+        if(oprimida==32) {
+            nave.getMisil().setPosX(nave.getPosX() + nave.getHeight()/2);
+            nave.getMisil().setPosY(nave.getPosY() + nave.getHeight()/2);
+
+            //activa la bala
+            nave.getMisil().setActiva(true);
+
+            //eventos del timer
+        }
+        this.repaint();
 
     }
 

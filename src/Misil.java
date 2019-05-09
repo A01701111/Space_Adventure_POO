@@ -15,7 +15,7 @@ public class Misil extends ObjetoMovil implements ActionListener{
 
     public Misil(int posX, int posY) {
         super(posX,posY);
-        setColor(Color.BLACK);
+        setColor(Color.white);
         speedY=10;
         height=10;
         width=10;
@@ -26,7 +26,7 @@ public class Misil extends ObjetoMovil implements ActionListener{
     public void paint(Graphics g) {
         if(activa) {
 
-            g.setColor(Color.BLACK);
+            g.setColor(Color.white);
             g.fillOval(posX, posY, height, width);
         }
 

@@ -30,16 +30,16 @@ public class Nave extends ObjetoMovil {
 
     public void move(int tecla, int lD) {
 
-        if (tecla == 37) {//left
+        if (tecla == 37||tecla==65) {//left
 
             if ((posX - speed > 0)) {
                 posX -= speed;
             }
         }
 
-        if (tecla == 39) {//right
+        if (tecla == 39||tecla ==68) {//right
 
-            if (((posX + speed + width) < lD)) {
+            if (((posX + speed + width) <= lD)) {
                 posX += speed;
             }
         }
