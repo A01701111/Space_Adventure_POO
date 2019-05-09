@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import javax.swing.Timer;
 
 public class MyCanvas extends Canvas implements ActionListener, KeyListener {
@@ -104,7 +105,8 @@ public class MyCanvas extends Canvas implements ActionListener, KeyListener {
 
 
         if(enemies != null) {
-
+            nave.getMisil().colision(enemies);
+            colision=true;
             if(colision){
                 enemies=null;
             }
