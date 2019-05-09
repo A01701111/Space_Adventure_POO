@@ -105,8 +105,8 @@ public class MyCanvas extends Canvas implements ActionListener, KeyListener {
 
 
         if(enemies != null) {
-            nave.getMisil().colision(enemies);
-            colision=true;
+            colision = enemies.collision(nave.getMisil());
+
             if(colision){
                 enemies=null;
             }

@@ -1,8 +1,9 @@
 import java.awt.*;
 import java.util.ArrayList;
+
 public class Enemies {
     protected ArrayList<Enemy> enemies;
-
+    private boolean flag = false;
     public Enemies() {
         enemies = new ArrayList<>(30);
     }
@@ -24,5 +25,16 @@ public class Enemies {
 
     public void paint(Graphics graphics) {
         enemies.forEach((Enemy enemy) -> enemy.paint(graphics));
+    }
+
+    public boolean collision(Misil misil) {
+        enemies.forEach((Enemy enemy) -> {
+            if () {
+            }
+            flag = true;
+
+
+        });
+        return flag;
     }
 }

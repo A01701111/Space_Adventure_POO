@@ -33,19 +33,7 @@ public class Misil extends ObjetoMovil implements ActionListener{
 
     }
 
-    public boolean colision(ArrayList<Enemy> coleccion) {
 
-        ListIterator<Enemy> itr = coleccion.listIterator();
-        
-
-        while(itr.hasNext()) {
-            Enemy aux = itr.next();
-            if(posY == (aux.getPosY() + aux.getWidth()) && (posX == (aux.getPosX()+aux.getHeight())) ){
-                return true;
-            }
-        }
-        return false;
-    }
 
 
     @Override
