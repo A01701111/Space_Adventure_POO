@@ -1,10 +1,6 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import javax.swing.Timer;
 
 public class MyCanvas extends Canvas implements ActionListener, KeyListener {
@@ -15,7 +11,7 @@ public class MyCanvas extends Canvas implements ActionListener, KeyListener {
     private BufferedImage imagen;
     private int counter = 0, lineNum = 3, speed;
     private int y;
-//ada;jd;asjldadsjl;
+
     public MyCanvas() {
         super();
         this.setBackground(Color.BLACK);
@@ -31,9 +27,10 @@ public class MyCanvas extends Canvas implements ActionListener, KeyListener {
     public void generateLevel(int level) {
         switch (level) {
             case 1:
-                timer = new Timer(4000, this);
+                timer = new Timer(130000, this);
                 updateT = new Timer(speed, this);
                 updateT.start();
+                timer.start();
                 timer.restart();
                 y = 0;
                 counter = 0;
@@ -72,7 +69,7 @@ public class MyCanvas extends Canvas implements ActionListener, KeyListener {
                 y = 0;
                 counter = 0;
                 lineNum = 5;
-                speed = 10;
+                speed = 22;
                 while (counter < lineNum) {
 
                     enemies.addEnemy(1800, y);
@@ -100,18 +97,16 @@ public class MyCanvas extends Canvas implements ActionListener, KeyListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         enemies.moveEnemies();
-        boolean colision = false;
         nave.getMisil().move();
 
-
         if(enemies != null) {
-            colision = enemies.collision(nave.getMisil());
-
-            if(colision){
-                enemies=null;
-            }
+            enemies.collision(nave.getMisil());
+        }
+        if (enemies.end()){
+            timer.stop();
         }
         repaint();
+        System.out.println(enemies.score+'w');
     }
 
     @Override
@@ -144,6 +139,10 @@ public class MyCanvas extends Canvas implements ActionListener, KeyListener {
 
     }
 
+    public int returnScore(){
+        System.out.println(enemies.score+"pene");
+        return enemies.getScore();
+    }
     @Override
     public void keyReleased(KeyEvent e) {
 

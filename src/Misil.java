@@ -33,7 +33,19 @@ public class Misil extends ObjetoMovil implements ActionListener{
 
     }
 
+    public boolean collision(Enemy enemy) {
 
+        boolean flag = false;
+        Rectangle misil, enemigo;
+        misil = new Rectangle(posX, posY, height, width);
+        enemigo = new Rectangle(enemy.getPosX(), enemy.getPosY(), enemy.getHeight(), enemy.getWidth());
+
+        if(misil.intersects(enemigo)){
+            flag= true;
+        }
+
+        return flag;
+    }
 
 
     @Override

@@ -3,12 +3,6 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Menu extends JFrame implements ActionListener {
-
-
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JPanel panelS;
     private JButton iniciar, salir;
     private CanvasMenu fondo;
@@ -53,6 +47,38 @@ public class Menu extends JFrame implements ActionListener {
             System.exit(0);
 
         }
+    }
+
+    public JPanel getPanelS() {
+        return panelS;
+    }
+
+    public void setPanelS(JPanel panelS) {
+        this.panelS = panelS;
+    }
+
+    public JButton getIniciar() {
+        return iniciar;
+    }
+
+    public void setIniciar(JButton iniciar) {
+        this.iniciar = iniciar;
+    }
+
+    public JButton getSalir() {
+        return salir;
+    }
+
+    public void setSalir(JButton salir) {
+        this.salir = salir;
+    }
+
+    public CanvasMenu getFondo() {
+        return fondo;
+    }
+
+    public void setFondo(CanvasMenu fondo) {
+        this.fondo = fondo;
     }
 }
 

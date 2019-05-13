@@ -6,17 +6,19 @@ import java.io.IOException;
 
 public class Enemy {
     private int width,height, speed, posX,posY;
+    private boolean alive;
     private Color color;
     private BufferedImage img;
 
     public Enemy(int posX, int posY) {
-        String srcName= "src\\malo1.png";
+        String srcName= "C:\\Tec\\Java\\A01701111_JAVA\\bloques_bajando\\malo1.png";
         File srcFile = new File (srcName);
         try {
             img = ImageIO.read(srcFile);
         }catch(IOException e) {
             e.printStackTrace();
         }
+        this.alive= true;
         this.posX = posX;
         this.posY = posY;
         this.width = 80;
@@ -33,10 +35,17 @@ public class Enemy {
     }
     public void paint(Graphics graphics){
         graphics.setColor(color);
-        graphics.drawImage(img, posX, posY, width,height, null);
+        if (alive){
+        graphics.drawImage(img, posX, posY, width,height, null);}
+
         //graphics.fillRect(posX,posY,width,height);
     }
 
+    public void death(int flag){
+        if(flag==1){
+            alive = false;
+        }
+    }
     public int getWidth() {
         return width;
     }

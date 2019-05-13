@@ -18,7 +18,7 @@ public class Nave extends ObjetoMovil {
         speed = 10;
         misil = new Misil(posX, posY);
 
-        String srcName = "src\\nave.png";
+        String srcName = "C:\\Tec\\Java\\A01701111_JAVA\\bloques_bajando\\nave.png";
         File srcFile = new File(srcName);
         try {
             setImg(ImageIO.read(srcFile));
